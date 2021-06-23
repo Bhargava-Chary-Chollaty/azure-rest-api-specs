@@ -479,6 +479,10 @@
         },
         "identity": {
           "$ref": "#/definitions/Identity"
+        },
+        "systemData": {
+          "$ref": "../../common/v1/definitions.json#/definitions/systemData",
+          "description": "Resource system metadata."
         }
       },
       "allOf": [

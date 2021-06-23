@@ -339,10 +339,35 @@
       ],
       "description": "Definition of hybrid runbook worker group."
     },
+    "HybridRunbookWorker": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Gets or sets the worker machine name."
+        },
+        "ip": {
+          "type": "string",
+          "description": "Gets or sets the assigned machine IP address."
+        },
+        "registrationTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Gets or sets the registration time of the worker machine.",
+          "x-nullable": false
+        },
+        "lastSeenDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last Heartbeat from the Worker",
+          "x-nullable": false
+        }
+      },
+      "description": "Definition of hybrid runbook worker."
+    },
     "HybridRunbookWorkerGroupProperties": {
       "type": "object",
       "properties": {
-        "workerCredential": {
+        "credential": {
           "$ref": "#/definitions/RunAsCredentialAssociationProperty",
           "description": "Sets the credential of a worker group."
         },
@@ -357,6 +382,13 @@
             "name": "GroupTypeEnum",
             "modelAsString": true
           }
+        },
+        "hybridRunbookWorkers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HybridRunbookWorker"
+          },
+          "description": "Gets or sets the list of hybrid runbook workers."
         }
       },
       "description": "Definition of hybrid runbook worker group property."
@@ -379,7 +411,7 @@
     },
     "HybridRunbookWorkerGroupUpdateParameters": {
       "properties": {
-        "workerCredential": {
+        "credential": {
           "$ref": "#/definitions/RunAsCredentialAssociationProperty",
           "description": "Sets the credential of a worker group."
         }
